@@ -1,38 +1,49 @@
-{% assign image_paths = include.images | split: ", " %}
+{% assign items = include.images | split: ", " %}
 {% assign gallery_height = include.height | default: "400" %}
 {% assign gallery_id = include.id | default: page.url | slugify %}
 
 <div class="glide" style="--gallery-height: {{ gallery_height }}px;">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
-      {% for image_path in image_paths %}
-        {% assign image_name = image_path | strip %}
+
+      {% for raw in items %}
+        {% assign item = raw | strip %}
+        {% assign parts = item | split: "|" %}
+        {% assign main = parts[0] %}
+        {% assign thumb = parts[1] %}
+
+        {% assign is_video = main contains '.mp4' or main contains '.webm' or main contains '.mov' %}
+
+        {% assign page_url_without_index = page.url | remove: 'index' | remove: '.html' %}
+        {% assign src = main contains 'https://' | ternary: main, page_url_without_index | append: main %}
+
         <li class="glide__slide">
 
-          {% if image_name contains 'https://' %}
+          {% if is_video and thumb %}
+            <!-- Video (thumbnail only, plays on click) -->
             <a
-              href="{{ image_name }}"
+              href="{{ src }}"
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
+              data-type="video"
             >
               <img
-                src="{{ image_name }}"
-                alt="Web image"
+                src="{{ page_url_without_index }}{{ thumb }}"
+                alt="Video preview"
                 loading="lazy"
               />
             </a>
-          {% else %}
-            {% assign page_url_without_index = page.url | remove: 'index' | remove: '.html' %}
-            {% assign image_src = page_url_without_index | append: image_name %}
 
+          {% else %}
+            <!-- Image -->
             <a
-              href="{{ image_src }}"
+              href="{{ src }}"
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
             >
               <img
-                src="{{ image_src }}"
-                alt="{{ image_name }}"
+                src="{{ src }}"
+                alt="{{ main }}"
                 loading="lazy"
                 onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
               />
@@ -41,10 +52,10 @@
 
         </li>
       {% endfor %}
+
     </ul>
   </div>
 
-  <!-- Navigation arrows -->
   <div class="glide__arrows" data-glide-el="controls">
     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Prev</button>
     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
