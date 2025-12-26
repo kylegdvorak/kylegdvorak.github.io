@@ -19,7 +19,7 @@ description: >- # dont remove this line. this will ignore all new lines until th
  I collaborate closely with cross-functional teams to bring innovative concepts to life, from initial ideation to production-ready solutions.
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
-profile_image: .assets/images/profile-image/Kyle Avatar.jpg
+profile_image: .assets/images/profile-image/Kyle_Avatar.jpg
 
 # Link your resume
 # You can place your resume in assets/resume/{resume.pdf or add external link such as pdf saved in google drive 
