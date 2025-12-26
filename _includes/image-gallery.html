@@ -17,8 +17,8 @@
         {% endif %}
 
         {% assign parts = item | split: "|" %}
-        {% assign main = parts[0] | strip %}
-        {% assign thumb = parts[1] | strip %}
+        {% assign main = parts[0] %}
+        {% assign thumb = parts[1] | default: "" %}
 
         {% if main contains 'https://' %}
           {% assign main_src = main %}
@@ -26,30 +26,33 @@
           {% assign main_src = base_url | append: main %}
         {% endif %}
 
-        {% if thumb and not thumb contains 'https://' %}
-          {% assign thumb_src = base_url | append: thumb %}
+        {% if thumb != "" %}
+          {% if thumb contains 'https://' %}
+            {% assign thumb_src = thumb %}
+          {% else %}
+            {% assign thumb_src = base_url | append: thumb %}
+          {% endif %}
         {% else %}
-          {% assign thumb_src = thumb %}
+          {% assign thumb_src = "" %}
         {% endif %}
 
         <li class="glide__slide">
 
           {% if is_video %}
-            <!-- Video -->
+            <!-- Video (thumbnail if provided, plays on click) -->
             <a
               href="{{ main_src }}"
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
               data-type="video"
-              {% if thumb_src != blank %}data-poster="{{ thumb_src }}"{% endif %}
+              {% if thumb_src != "" %}data-poster="{{ thumb_src }}"{% endif %}
             >
-              {% if thumb_src != blank %}
-                <img src="{{ thumb_src }}" alt="Video thumbnail" loading="lazy" />
-              {% else %}
-                <img src="{{ main_src }}" alt="Video" loading="lazy" />
-              {% endif %}
+              <img
+                src="{% if thumb_src != "" %}{{ thumb_src }}{% else %}{{ main_src }}{% endif %}"
+                alt="Video preview"
+                loading="lazy"
+              />
             </a>
-
           {% else %}
             <!-- Image -->
             <a
@@ -72,7 +75,7 @@
     </ul>
   </div>
 
-  <!-- Navigation -->
+  <!-- Navigation arrows -->
   <div class="glide__arrows" data-glide-el="controls">
     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Prev</button>
     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
