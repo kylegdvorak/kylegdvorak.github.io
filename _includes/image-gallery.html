@@ -1,23 +1,62 @@
 {% assign image_paths = include.images | split: ", " %}
 {% assign gallery_height = include.height | default: "300" %}
 
-<div class="image-gallery" style="--gallery-height: {{ gallery_height }}px;">
-  {% for image_path in image_paths %}
-      {% assign image_name = image_path | strip %}
-      {% if image_name contains 'https://' %}
-          <img 
+<!-- Glide container -->
+<div class="glide" style="--gallery-height: {{ gallery_height }}px;">
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      {% for image_path in image_paths %}
+        {% assign image_name = image_path | strip %}
+        <li class="glide__slide">
+          {% if image_name contains 'https://' %}
+            <img 
               src="{{ image_name }}"
               alt="Web image"
               loading="lazy"
-          />
-      {% else %}
-          {% assign page_url_without_index = page.url | remove: 'index' | remove: '.html' %}
-          <img 
+            />
+          {% else %}
+            {% assign page_url_without_index = page.url | remove: 'index' | remove: '.html' %}
+            <img 
               src="{{ page_url_without_index }}{{ image_name }}" 
               alt="{{image_name}}"
               loading="lazy"
               onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
-          />
-      {% endif %}
-  {% endfor %}
+            />
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Optional navigation arrows -->
+  <div class="glide__arrows" data-glide-el="controls">
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Prev</button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
+  </div>
 </div>
+
+<!-- Glide.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+
+<!-- Glide.js JS -->
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+<script>
+  const glide = new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    perView: 3,  // Change this number based on how many images you want visible
+    gap: 20      // Space between slides
+  });
+  glide.mount();
+</script>
+
+<!-- Optional CSS for image fit -->
+<style>
+.glide__slide img {
+  width: 100%;
+  height: var(--gallery-height);
+  object-fit: cover;
+  display: block;
+}
+</style>
