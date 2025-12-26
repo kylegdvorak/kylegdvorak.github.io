@@ -43,12 +43,14 @@
     }
   </style>
 </head>
-<body>
+<body style="margin:0; padding:0;">
 
   <!-- NAVBAR -->
   {% include navbar.html %}
 
-  <div class="page">{{ content }}</div>
+  <div class="page-wrapper">
+    <div class="page">{{ content }}</div>
+  </div>
 
   <!-- FOOTER -->
   {% include footer.html %}
@@ -62,7 +64,7 @@
   <!-- GLightbox JS -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-  <!-- Initialize Glide + Lightbox -->
+  <!-- Initialize Glide + Lightbox + scrollbar compensation -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -81,8 +83,23 @@
       });
 
       // Initialize GLightbox
-      GLightbox({
+      const lightbox = GLightbox({
         selector: '.glightbox'
+      });
+
+      // Function to get scrollbar width
+      function getScrollbarWidth() {
+        return window.innerWidth - document.documentElement.clientWidth;
+      }
+
+      // Add padding-right to body to prevent jump
+      lightbox.on('open', () => {
+        const scrollBarWidth = getScrollbarWidth();
+        document.body.style.paddingRight = scrollBarWidth + 'px';
+      });
+
+      lightbox.on('close', () => {
+        document.body.style.paddingRight = '';
       });
 
     });
