@@ -1,7 +1,6 @@
 {% assign image_paths = include.images | split: ", " %}
-{% assign gallery_height = include.height | default: "300" %}
+{% assign gallery_height = include.height | default: "400" %}
 
-<!-- Glide container -->
 <div class="glide" style="--gallery-height: {{ gallery_height }}px;">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
@@ -27,8 +26,8 @@
       {% endfor %}
     </ul>
   </div>
-  
-  <!-- Optional arrows -->
+
+  <!-- Optional navigation arrows -->
   <div class="glide__arrows" data-glide-el="controls">
     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Prev</button>
     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
