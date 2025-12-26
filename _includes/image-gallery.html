@@ -17,8 +17,8 @@
         {% endif %}
 
         {% assign parts = item | split: "|" %}
-        {% assign main = parts[0] %}
-        {% assign thumb = parts[1] %}
+        {% assign main = parts[0] | strip %}
+        {% assign thumb = parts[1] | strip %}
 
         {% if main contains 'https://' %}
           {% assign main_src = main %}
@@ -26,21 +26,28 @@
           {% assign main_src = base_url | append: main %}
         {% endif %}
 
+        {% if thumb and not thumb contains 'https://' %}
+          {% assign thumb_src = base_url | append: thumb %}
+        {% else %}
+          {% assign thumb_src = thumb %}
+        {% endif %}
+
         <li class="glide__slide">
 
-          {% if is_video and thumb %}
-            <!-- Video (thumbnail only, plays on click) -->
+          {% if is_video %}
+            <!-- Video -->
             <a
               href="{{ main_src }}"
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
               data-type="video"
+              {% if thumb_src != blank %}data-poster="{{ thumb_src }}"{% endif %}
             >
-              <img
-                src="{{ base_url | append: thumb }}"
-                alt="Video preview"
-                loading="lazy"
-              />
+              {% if thumb_src != blank %}
+                <img src="{{ thumb_src }}" alt="Video thumbnail" loading="lazy" />
+              {% else %}
+                <img src="{{ main_src }}" alt="Video" loading="lazy" />
+              {% endif %}
             </a>
 
           {% else %}
