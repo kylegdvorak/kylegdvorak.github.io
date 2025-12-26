@@ -11,5 +11,5 @@ skills:
   - Cable Management
   - Overmolding
 
-main-image: /project2.jpg
+main-image: /Dash Word Background.jpg
 ---
