@@ -13,3 +13,4 @@ skills:
 
 main-image: /Dash Word Background.jpg
 ---
+{% include image-gallery.html images="471082_Dash_VehicleConsole.jpg, 471082_Dash_Charger_iPhone.jpg, 471082_Dash_Booster.jpg, 471082_Dash_Box_Family_Tabletop.jpg" height="400" %}
