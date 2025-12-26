@@ -13,4 +13,4 @@ skills:
 
 main-image: /Enterprise Linkedin Background.png
 ---
-{% include image-gallery.html images=" 4330 Reveal Sequence.mp4, Enterprise on Wall.jpg, 4330_Wall_tabletop.jpg, 4330_RackMount_rack.jpg, 4330_RackMount_closeup.jpg" height="400" %}
+{% include image-gallery.html images=" 4330 Reveal Sequence.mp4|Enterprise_Video_Thumbnail.png, Enterprise on Wall.jpg, 4330_Wall_tabletop.jpg, 4330_RackMount_rack.jpg, 4330_RackMount_closeup.jpg" height="400" %}
