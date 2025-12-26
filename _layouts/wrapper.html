@@ -20,18 +20,21 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
 
+  <!-- GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
   <title>{{ site.title }}</title>
 
-  <!-- Optional: Carousel image styling -->
+  <!-- Carousel image styling -->
   <style>
     .glide__slide img {
-      width: 100%;                   /* fill the slide width */
-      height: var(--gallery-height); /* use height from include */
-      object-fit: contain;             /* no cropping */
+      width: 100%;
+      height: var(--gallery-height);
+      object-fit: contain;
       display: block;
+      cursor: pointer;
     }
 
-    /* Responsive adjustments */
     @media (max-width: 1024px) {
       .glide__slide img { height: 300px; }
     }
@@ -52,12 +55,19 @@
 
   <!-- Scripts -->
   <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+
+  <!-- Glide JS -->
   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
 
-  <!-- Initialize all Glide galleries -->
+  <!-- GLightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+  <!-- Initialize Glide + Lightbox -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.glide').forEach(function(gallery) {
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Initialize all Glide carousels
+      document.querySelectorAll('.glide').forEach(function (gallery) {
         new Glide(gallery, {
           type: 'carousel',
           startAt: 0,
@@ -69,6 +79,12 @@
           }
         }).mount();
       });
+
+      // Initialize GLightbox
+      GLightbox({
+        selector: '.glightbox'
+      });
+
     });
   </script>
 
