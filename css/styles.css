@@ -22,7 +22,6 @@ html {
 }
 
 body {
-    padding: 0 50px;
     font-family: 'Poppins', sans-serif;
     background-color: var(--background-color);
     max-width: 1400px;
