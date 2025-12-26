@@ -1,5 +1,6 @@
 {% assign image_paths = include.images | split: ", " %}
 {% assign gallery_height = include.height | default: "400" %}
+{% assign gallery_id = include.id | default: page.url | slugify %}
 
 <div class="glide" style="--gallery-height: {{ gallery_height }}px;">
   <div class="glide__track" data-glide-el="track">
@@ -7,27 +8,43 @@
       {% for image_path in image_paths %}
         {% assign image_name = image_path | strip %}
         <li class="glide__slide">
+
           {% if image_name contains 'https://' %}
-            <img 
-              src="{{ image_name }}"
-              alt="Web image"
-              loading="lazy"
-            />
+            <a
+              href="{{ image_name }}"
+              class="glightbox"
+              data-gallery="gallery-{{ gallery_id }}"
+            >
+              <img
+                src="{{ image_name }}"
+                alt="Web image"
+                loading="lazy"
+              />
+            </a>
           {% else %}
             {% assign page_url_without_index = page.url | remove: 'index' | remove: '.html' %}
-            <img 
-              src="{{ page_url_without_index }}{{ image_name }}" 
-              alt="{{image_name}}"
-              loading="lazy"
-              onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
-            />
+            {% assign image_src = page_url_without_index | append: image_name %}
+
+            <a
+              href="{{ image_src }}"
+              class="glightbox"
+              data-gallery="gallery-{{ gallery_id }}"
+            >
+              <img
+                src="{{ image_src }}"
+                alt="{{ image_name }}"
+                loading="lazy"
+                onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
+              />
+            </a>
           {% endif %}
+
         </li>
       {% endfor %}
     </ul>
   </div>
 
-  <!-- Optional navigation arrows -->
+  <!-- Navigation arrows -->
   <div class="glide__arrows" data-glide-el="controls">
     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Prev</button>
     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
