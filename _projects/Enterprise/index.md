@@ -11,6 +11,6 @@ skills:
   - Cable Management
   - Heat Sink Design
 
-main-image: /Dash Word Background.jpg
+main-image: /Enterprise Linkedin Background.png
 ---
-{% include image-gallery.html images="471082_Dash_VehicleConsole.jpg, 471082_Dash_Charger_iPhone.jpg, 471082_Dash_Booster.jpg, 471082_Dash_Box_Family_Tabletop.jpg" height="400" %}
+{% include image-gallery.html images="Enterprise on Wall.jpg, 4330_Wall_tabletop.jpg, 4330_RackMount_rack.jpg, 4330_RackMount_closeup.jpg" height="400" %}
