@@ -18,9 +18,27 @@
 
   <!-- Glide CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
 
   <title>{{ site.title }}</title>
+
+  <!-- Optional: Carousel image styling -->
+  <style>
+    .glide__slide img {
+      width: 100%;                   /* fill the slide width */
+      height: var(--gallery-height); /* use height from include */
+      object-fit: cover;             /* crop nicely without stretching */
+      display: block;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .glide__slide img { height: 300px; }
+    }
+    @media (max-width: 600px) {
+      .glide__slide img { height: 200px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -35,6 +53,8 @@
   <!-- Scripts -->
   <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+
+  <!-- Initialize all Glide galleries -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.glide').forEach(function(gallery) {
