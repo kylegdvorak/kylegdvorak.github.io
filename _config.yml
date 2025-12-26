@@ -7,18 +7,19 @@
 
 # Main Page Setup
 
-title: John Doe's Portfolio # This is what shows up in the tab of the browser
+title: Kyle Dvorak's Portfolio # This is what shows up in the tab of the browser
 
 
 
 # Hero Section
 name: Kyle Dvorak
-headline: headline message
+headline:
 description: >- # dont remove this line. this will ignore all new lines until the next section
- I'm Kyle Dvorak, a Lead Product Design Engineer specializing in mechanical design, 3D CAD, and product development. I collaborate closely with cross-functional teams to bring innovative concepts to life, from initial ideation to production-ready solutions.
+ I'm Kyle Dvorak, a Lead Product Design Engineer specializing in mechanical design, 3D CAD, and product development. 
+ I collaborate closely with cross-functional teams to bring innovative concepts to life, from initial ideation to production-ready solutions.
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
-profile_image: ./assets/images/profile-image/avatar.jpeg
+profile_image: ./assets/images/profile-image/Kyle Avatar.jpg
 
 
 # Link your resume
@@ -29,9 +30,9 @@ resume-url: https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/vi
 # Set up external links - this will show up as small icons next to your name.
 
 external-links:    # input only your own url slug. The icons with missing entries will not appear.
-  linkedin: test    # https://www.linkedin.com/in/{your url slug} 
-  github: leea12    # https://github.com/{your url slug} 
-  stackoverflow: test      # https://stackoverflow.com/users/{your url slug}
+  linkedin: www.linkedin.com/in/kyle-dvorak-20829b148    # https://www.linkedin.com/in/{your url slug} 
+  github:     # https://github.com/{your url slug} 
+  stackoverflow:  # https://stackoverflow.com/users/{your url slug}
   medium:            # https://medium.com/@{your url slug} 
   x-twitter:   # https://x.com/{your url slug} 
   threads:            # https://threads.net/@{your url slug} 
