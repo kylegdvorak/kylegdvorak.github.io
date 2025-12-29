@@ -61,6 +61,23 @@ p {
   
 
 /* NAVBAR */
+
+/* Glide carousel arrows */
+.glide__arrow {
+  background: rgba(0, 0, 0, 0.6); /* dark background */
+  color: #fff;                  /* white arrow text */
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Hover state */
+.glide__arrow:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
