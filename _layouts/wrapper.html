@@ -80,9 +80,21 @@
         }).mount();
       });
 
-      // Initialize GLightbox
-      GLightbox({
+      // Initialize GLightbox with scroll compensation
+      const lightbox = GLightbox({
         selector: '.glightbox'
+      });
+
+      // Fix page shift when lightbox opens
+      lightbox.on('open', () => {
+        const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+        if (scrollBarWidth > 0) {
+          document.body.style.paddingRight = scrollBarWidth + 'px';
+        }
+      });
+
+      lightbox.on('close', () => {
+        document.body.style.paddingRight = '';
       });
 
     });
