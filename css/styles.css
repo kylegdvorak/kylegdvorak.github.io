@@ -29,10 +29,6 @@ body {
     margin: 0 auto;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 a {
     color: var(--link-color);
     text-decoration: none;
@@ -967,4 +963,12 @@ footer p {
   background: rgba(50, 50, 50, 0.9); /* dark grey background */
   color: #fff; /* white arrow icon */
   border-color: #333; /* darker border */
+}
+
+
+html, body {
+  /* Forces the body to stay put regardless of what the script adds */
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  overflow-x: hidden !important;
 }
