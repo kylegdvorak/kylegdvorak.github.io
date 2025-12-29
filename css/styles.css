@@ -27,7 +27,10 @@ body {
     background-color: var(--background-color);
     max-width: 1400px;
     margin: 0 auto;
-    overflow-y: scroll; /* Always reserve vertical scrollbar space */
+}
+
+body.glightbox-open {
+    overflow-y: scroll !important;
 }
 
 a {
