@@ -948,39 +948,19 @@ footer p {
       
 }
 
-/* Ensure the carousel container is a positioning context */
-.glide {
-  position: relative;
-}
-
-/* Target the existing Glide arrows */
+/* Glide Arrows - subtle default, pop on hover */
 .glide__arrow {
-  position: absolute;      /* position relative to .glide */
-  top: 50%;                /* vertically center */
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.75);
-  color: #000;
-  border: 2px solid #000;
-  border-radius: 999px;
-  padding: 10px 14px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  z-index: 10;             /* make sure arrows sit above slides */
+  background: rgba(200, 200, 200, 0.5); /* light grey, semi-transparent */
+  color: #555; /* dark grey arrow icon */
+  border: 1px solid rgba(150, 150, 150, 0.5); /* subtle border */
+  transition: 
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-/* Hover effect */
 .glide__arrow:hover {
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  border-color: #fff;
-  transform: translateY(-50%) scale(1.05);
-}
-
-/* Left/right specific positions */
-.glide__arrow--left {
-  left: 10px;              /* distance from left edge */
-}
-.glide__arrow--right {
-  right: 10px;             /* distance from right edge */
+  background: rgba(50, 50, 50, 0.9); /* dark grey background */
+  color: #fff; /* white arrow icon */
+  border-color: #333; /* darker border */
 }
