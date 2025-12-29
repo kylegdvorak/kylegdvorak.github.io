@@ -947,3 +947,40 @@ footer p {
 
       
 }
+
+/* Ensure the carousel container is a positioning context */
+.glide {
+  position: relative;
+}
+
+/* Target the existing Glide arrows */
+.glide__arrow {
+  position: absolute;      /* position relative to .glide */
+  top: 50%;                /* vertically center */
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.75);
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;             /* make sure arrows sit above slides */
+}
+
+/* Hover effect */
+.glide__arrow:hover {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Left/right specific positions */
+.glide__arrow--left {
+  left: 10px;              /* distance from left edge */
+}
+.glide__arrow--right {
+  right: 10px;             /* distance from right edge */
+}
