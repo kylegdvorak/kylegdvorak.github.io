@@ -29,8 +29,8 @@ body {
     margin: 0 auto;
 }
 
-body.glightbox-open {
-    overflow-y: scroll !important;
+html {
+  overflow-y: scroll;
 }
 
 a {
