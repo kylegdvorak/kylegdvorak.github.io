@@ -29,6 +29,12 @@ body {
     margin: 0 auto;
 }
 
+.page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 a {
     color: var(--link-color);
     text-decoration: none;
@@ -965,4 +971,9 @@ footer p {
 
 body {
   transition: padding-right 0.2s ease;
+}
+
+html.glightbox-open {
+  width: 100%;
+  overflow-y: scroll; /* forces stable layout width */
 }
