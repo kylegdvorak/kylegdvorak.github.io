@@ -27,6 +27,7 @@ body {
     background-color: var(--background-color);
     max-width: 1400px;
     margin: 0 auto;
+    transition: padding-right 0.2s ease;
 }
 
 .page {
@@ -969,11 +970,8 @@ footer p {
   border-color: #333; /* darker border */
 }
 
-body {
-  transition: padding-right 0.2s ease;
-}
-
 html.glightbox-open {
-  width: 100%;
-  overflow-y: scroll; /* forces stable layout width */
+  overflow-y: scroll;
+  position: fixed;
+  width: 100vw;
 }
