@@ -962,3 +962,7 @@ footer p {
   color: #fff; /* white arrow icon */
   border-color: #333; /* darker border */
 }
+
+body {
+  transition: padding-right 0.2s ease;
+}
