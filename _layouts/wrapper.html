@@ -63,44 +63,30 @@
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
   <!-- Initialize Glide + Lightbox -->
- <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-    // Initialize all Glide carousels
-    document.querySelectorAll('.glide').forEach(function (gallery) {
-      new Glide(gallery, {
-        type: 'carousel',
-        startAt: 0,
-        perView: 3,
-        gap: 20,
-        breakpoints: {
-          1024: { perView: 2 },
-          600: { perView: 1 }
-        }
-      }).mount();
+      // Initialize all Glide carousels
+      document.querySelectorAll('.glide').forEach(function (gallery) {
+        new Glide(gallery, {
+          type: 'carousel',
+          startAt: 0,
+          perView: 3,
+          gap: 20,
+          breakpoints: {
+            1024: { perView: 2 },
+            600: { perView: 1 }
+          }
+        }).mount();
+      });
+
+      // Initialize GLightbox
+      GLightbox({
+        selector: '.glightbox'
+      });
+
     });
-
-    // Measure scrollbar width
-    function getScrollbarWidth() {
-      return window.innerWidth - document.documentElement.clientWidth;
-    }
-
-    // Initialize GLightbox with hooks
-    const lightbox = GLightbox({
-      selector: '.glightbox',
-      onOpen: () => {
-        const scrollbarWidth = getScrollbarWidth();
-        if (scrollbarWidth > 0) {
-          document.body.style.paddingRight = scrollbarWidth + 'px';
-        }
-      },
-      onClose: () => {
-        document.body.style.paddingRight = '';
-      }
-    });
-
-  });
-</script>
+  </script>
 
 </body>
 </html>
