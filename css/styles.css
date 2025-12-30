@@ -30,11 +30,6 @@ body {
     transition: padding-right 0.2s ease;
 }
 
-.page {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
 
 a {
     color: var(--link-color);
@@ -970,8 +965,8 @@ footer p {
   border-color: #333; /* darker border */
 }
 
-html.glightbox-open {
-  overflow-y: scroll;
-  position: fixed;
-  width: 100vw;
+html.glightbox-open body {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
