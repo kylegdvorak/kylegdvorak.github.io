@@ -962,3 +962,8 @@ footer p {
   color: #fff; /* white arrow icon */
   border-color: #333; /* darker border */
 }
+
+/* Prevent layout shift when GLightbox opens */
+html {
+  overflow-y: scroll;
+}
