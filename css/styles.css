@@ -15,9 +15,8 @@
     padding: 0;
     box-sizing: border-box;
 
-}
-
 html {
+    overflow-y: scroll;
     scroll-behavior: smooth
 }
 
@@ -963,10 +962,4 @@ footer p {
   background: rgba(50, 50, 50, 0.9); /* dark grey background */
   color: #fff; /* white arrow icon */
   border-color: #333; /* darker border */
-}
-
-html.glightbox-open body {
-  position: relative;
-  right: 50%;
-  transform: translateX(-50%);
 }
