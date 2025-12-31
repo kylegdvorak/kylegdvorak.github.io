@@ -16,7 +16,6 @@
     box-sizing: border-box;
 
 html {
-    overflow-y: scroll;
     scroll-behavior: smooth
 }
 
@@ -29,6 +28,9 @@ body {
     transition: padding-right 0.2s ease;
 }
 
+  html {
+    overflow-y: scroll;
+}
 
 a {
     color: var(--link-color);
