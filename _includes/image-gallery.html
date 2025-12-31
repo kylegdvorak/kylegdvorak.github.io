@@ -1,7 +1,6 @@
 {% assign items = include.images | split: ", " %}
 {% assign gallery_height = include.height | default: "400" %}
 {% assign gallery_id = include.id | default: page.url | slugify %}
-{% assign base_url = page.url | remove: 'index' | remove: '.html' %}
 
 <div class="glide" style="--gallery-height: {{ gallery_height }}px;">
   <div class="glide__track" data-glide-el="track">
@@ -10,45 +9,28 @@
       {% for raw in items %}
         {% assign item = raw | strip %}
 
-        {% assign is_video = false %}
-        {% if item contains 'video:' %}
-          {% assign is_video = true %}
-          {% assign item = item | remove: 'video:' %}
-        {% endif %}
+        {%- assign parts = item | split: "|" -%}
+        {%- assign main = parts[0] | strip -%}
+        {%- assign thumb = parts[1] | default: "" | strip -%}
 
-        {% assign parts = item | split: "|" %}
-        {% assign main = parts[0] %}
-        {% assign thumb = parts[1] | default: "" %}
-
-        {% if main contains 'https://' %}
-          {% assign main_src = main %}
-        {% else %}
-          {% assign main_src = base_url | append: main %}
-        {% endif %}
-
-        {% if thumb != "" %}
-          {% if thumb contains 'https://' %}
-            {% assign thumb_src = thumb %}
-          {% else %}
-            {% assign thumb_src = base_url | append: thumb %}
-          {% endif %}
-        {% else %}
-          {% assign thumb_src = "" %}
-        {% endif %}
+        {%- assign is_video = false -%}
+        {%- if main endswith ".mp4" or main endswith ".webm" or main endswith ".mov" -%}
+          {%- assign is_video = true -%}
+        {%- endif -%}
 
         <li class="glide__slide">
 
           {% if is_video %}
-            <!-- Video (thumbnail if provided, plays on click) -->
+            <!-- Video -->
             <a
-              href="{{ main_src }}"
+              href="{{ main }}"
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
               data-type="video"
-              {% if thumb_src != "" %}data-poster="{{ thumb_src }}"{% endif %}
+              {% if thumb != "" %}data-poster="{{ thumb }}"{% endif %}
             >
               <img
-                src="{% if thumb_src != "" %}{{ thumb_src }}{% else %}{{ main_src }}{% endif %}"
+                src="{% if thumb != "" %}{{ thumb }}{% else %}{{ main }}{% endif %}"
                 alt="Video preview"
                 loading="lazy"
               />
@@ -56,12 +38,12 @@
           {% else %}
             <!-- Image -->
             <a
-              href="{{ main_src }}"
+              href="{{ main }}"
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
             >
               <img
-                src="{{ main_src }}"
+                src="{{ main }}"
                 alt="{{ main }}"
                 loading="lazy"
                 onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
