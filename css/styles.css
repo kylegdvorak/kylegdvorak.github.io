@@ -21,6 +21,10 @@ html {
     scroll-behavior: smooth
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
     padding: 0 50px;
     font-family: 'Poppins', sans-serif;
