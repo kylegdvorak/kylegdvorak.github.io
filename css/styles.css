@@ -28,10 +28,6 @@ body {
     transition: padding-right 0.2s ease;
 }
 
-  html {
-    overflow-y: scroll;
-}
-
 a {
     color: var(--link-color);
     text-decoration: none;
