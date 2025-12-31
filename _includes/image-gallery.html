@@ -9,14 +9,15 @@
 
       {% for raw in items %}
         {% assign item = raw | strip %}
-        {% assign parts = item | split: "|" %}
-        {% assign main = parts[0] | strip %}
-        {% assign thumb = parts[1] | default: "" | strip %}
-
         {% assign is_video = false %}
-        {% if main contains ".mp4" or main contains ".webm" or main contains ".mov" %}
+        {% if item contains 'video:' %}
           {% assign is_video = true %}
+          {% assign item = item | remove: 'video:' %}
         {% endif %}
+
+        {% assign parts = item | split: "|" %}
+        {% assign main = parts[0] %}
+        {% assign thumb = parts[1] | default: "" %}
 
         {% if main contains 'https://' %}
           {% assign main_src = main %}
@@ -31,7 +32,7 @@
             {% assign thumb_src = base_url | append: thumb %}
           {% endif %}
         {% else %}
-          {% assign thumb_src = main_src %}
+          {% assign thumb_src = "" %}
         {% endif %}
 
         <li class="glide__slide">
@@ -42,9 +43,13 @@
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
               data-type="video"
-              data-poster="{{ thumb_src }}"
+              {% if thumb_src != "" %}data-poster="{{ thumb_src }}"{% endif %}
             >
-              <img src="{{ thumb_src }}" alt="Video preview" loading="lazy" />
+              <img
+                src="{% if thumb_src != "" %}{{ thumb_src }}{% else %}{{ main_src }}{% endif %}"
+                alt="Video preview"
+                loading="lazy"
+              />
             </a>
           {% else %}
             <a
@@ -62,7 +67,6 @@
           {% endif %}
 
         </li>
-
       {% endfor %}
 
     </ul>
