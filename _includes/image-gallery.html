@@ -1,6 +1,7 @@
 {% assign items = include.images | split: ", " %}
 {% assign gallery_height = include.height | default: "400" %}
 {% assign gallery_id = include.id | default: page.url | slugify %}
+{% assign base_url = page.url | remove: 'index' | remove: '.html' %}
 
 <div class="glide" style="--gallery-height: {{ gallery_height }}px;">
   <div class="glide__track" data-glide-el="track">
@@ -17,32 +18,42 @@
           {% assign is_video = true %}
         {% endif %}
 
+        {% if main contains 'https://' %}
+          {% assign main_src = main %}
+        {% else %}
+          {% assign main_src = base_url | append: main %}
+        {% endif %}
+
+        {% if thumb != "" %}
+          {% if thumb contains 'https://' %}
+            {% assign thumb_src = thumb %}
+          {% else %}
+            {% assign thumb_src = base_url | append: thumb %}
+          {% endif %}
+        {% else %}
+          {% assign thumb_src = main_src %}
+        {% endif %}
+
         <li class="glide__slide">
 
           {% if is_video %}
-            <!-- Video -->
             <a
-              href="{{ main }}"
+              href="{{ main_src }}"
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
               data-type="video"
-              {% if thumb != "" %}data-poster="{{ thumb }}"{% endif %}
+              data-poster="{{ thumb_src }}"
             >
-              <img
-                src="{% if thumb != "" %}{{ thumb }}{% else %}{{ main }}{% endif %}"
-                alt="Video preview"
-                loading="lazy"
-              />
+              <img src="{{ thumb_src }}" alt="Video preview" loading="lazy" />
             </a>
           {% else %}
-            <!-- Image -->
             <a
-              href="{{ main }}"
+              href="{{ main_src }}"
               class="glightbox"
               data-gallery="gallery-{{ gallery_id }}"
             >
               <img
-                src="{{ main }}"
+                src="{{ main_src }}"
                 alt="{{ main }}"
                 loading="lazy"
                 onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');"
@@ -51,12 +62,12 @@
           {% endif %}
 
         </li>
+
       {% endfor %}
 
     </ul>
   </div>
 
-  <!-- Navigation arrows -->
   <div class="glide__arrows" data-glide-el="controls">
     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">Prev</button>
     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">Next</button>
