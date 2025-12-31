@@ -8,15 +8,14 @@
 
       {% for raw in items %}
         {% assign item = raw | strip %}
+        {% assign parts = item | split: "|" %}
+        {% assign main = parts[0] | strip %}
+        {% assign thumb = parts[1] | default: "" | strip %}
 
-        {%- assign parts = item | split: "|" -%}
-        {%- assign main = parts[0] | strip -%}
-        {%- assign thumb = parts[1] | default: "" | strip -%}
-
-        {%- assign is_video = false -%}
-        {%- if main endswith ".mp4" or main endswith ".webm" or main endswith ".mov" -%}
-          {%- assign is_video = true -%}
-        {%- endif -%}
+        {% assign is_video = false %}
+        {% if main contains ".mp4" or main contains ".webm" or main contains ".mov" %}
+          {% assign is_video = true %}
+        {% endif %}
 
         <li class="glide__slide">
 
