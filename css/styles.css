@@ -21,10 +21,6 @@ html {
     scroll-behavior: smooth
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
     padding: 0 50px;
     font-family: 'Poppins', sans-serif;
@@ -966,4 +962,11 @@ footer p {
   background: rgba(50, 50, 50, 0.9); /* dark grey background */
   color: #fff; /* white arrow icon */
   border-color: #333; /* darker border */
+}
+
+html.glightbox-open body {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
