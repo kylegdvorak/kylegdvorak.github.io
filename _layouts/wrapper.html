@@ -84,7 +84,14 @@
       GLightbox({
         selector: '.glightbox'
       });
-
+      
+      // Debug all video lightbox items
+      document.querySelectorAll('.glightbox[data-type="video"]').forEach((el, i) => {
+      console.log(`Video #${i + 1}:`);
+      console.log('  href:', el.getAttribute('href'));
+      console.log('  data-poster:', el.getAttribute('data-poster'));
+      console.log('  img src:', el.querySelector('img')?.getAttribute('src'));
+      });
     });
   </script>
 
