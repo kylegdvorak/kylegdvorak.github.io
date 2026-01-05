@@ -13,4 +13,4 @@ skills:
 
 main-image: /Overland Main Image.jpg
 ---
-{% include image-gallery.html images="Overland_Bracket_Versatile.png, DriveReachOverland_T-Track_Angles.png, DriveReachOverland_T-Track_Folded.png, Overland_Bracket_Tabletop.png" height="400" %}
+{% include image-gallery.html images="Overland_Bracket_Versatile.jpg, DriveReachOverland_T-Track_Angles.jpg, DriveReachOverland_T-Track_Folded.jpg, Overland_Bracket_Tabletop.jpg" height="400" %}
