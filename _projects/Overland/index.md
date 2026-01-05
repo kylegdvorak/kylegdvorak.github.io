@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sky
-description: Insert Sky Info Here
+description: Insert Overland Info Here
 skills: 
   - Injection Molding
   - Ultrasonic Welding
@@ -11,6 +11,6 @@ skills:
   - Cable Management
   - Overmolding
 
-main-image: /WeBoost Sky Background Image.png
+main-image: /Overland Main Image.jpg
 ---
-{% include image-gallery.html images="Satellite Ortho No Shadow.png, Satellite Side View No Shadow.png" height="400" %}
+{% include image-gallery.html images="Overland_Bracket_Versatile.png, DriveReachOverland_T-Track_Angles.png, DriveReachOverland_T-Track_Folded.png, Overland_Bracket_Tabletop.png" height="400" %}
