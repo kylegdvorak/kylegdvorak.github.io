@@ -38,9 +38,10 @@
         <li class="glide__slide">
 
           {% if is_video %}
+            <!-- Video -->
             <a
               href="{{ main_src }}"
-              class="glightbox"
+              class="glightbox video-thumb"
               data-gallery="gallery-{{ gallery_id }}"
               data-type="video"
               {% if thumb_src != "" %}data-poster="{{ thumb_src }}"{% endif %}
@@ -52,6 +53,7 @@
               />
             </a>
           {% else %}
+            <!-- Image -->
             <a
               href="{{ main_src }}"
               class="glightbox"
