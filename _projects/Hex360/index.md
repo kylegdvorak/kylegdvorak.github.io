@@ -11,6 +11,6 @@ skills:
   - Cable Management
   - Overmolding
 
-main-image: /WeBoost Sky Background Image.png
+main-image: /Hex360_Background.png
 ---
-{% include image-gallery.html images="Sky_Ortho_White.png, Sky_Side_White.png, Sky Car v2.png" height="400" %}
+{% include image-gallery.html images="473059_Hex_Omni_Only_UpAngle.jpg, 473059_Hex_Omni_BracketAssembly.jpg, 473059_Hex_Omni_Side.jpg, 473059_WorkSite_Box_Tabletopy.jpg" height="400" %}
