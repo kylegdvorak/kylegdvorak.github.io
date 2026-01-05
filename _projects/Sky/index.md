@@ -13,4 +13,4 @@ skills:
 
 main-image: /WeBoost Sky Background Image.png
 ---
-{% include image-gallery.html images="Satellite Ortho No Shadow.png, Satellite Side View No Shadow.png" height="400" %}
+{% include image-gallery.html images="Sky_Ortho_White.png, Sky_Side_White.png, Sky Car v2.png" height="400" %}
