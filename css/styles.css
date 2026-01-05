@@ -985,16 +985,6 @@ html {
   display: block;
 }
 
-/* Darken slightly for contrast */
-.video-thumb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-  pointer-events: none;
-  border-radius: 6px;
-}
-
 /* Play button */
 .video-thumb::after {
   content: "▶";
