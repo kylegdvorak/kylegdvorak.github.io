@@ -2,7 +2,7 @@
 layout: post
 title: Enterprise 4330
 description: The WilsonPro 4330 cell signal repeater is a game changer in enhancing in-building coverage up to 100,000sq feet. Promoting coverage with all major carriers, you can be at ease that you will have 5G service throughout your campus. 
-expertise: 
+skills: 
   - Injection Molding
   - Sheet Metal Fabrication
   - DFM
