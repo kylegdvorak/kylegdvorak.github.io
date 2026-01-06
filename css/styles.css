@@ -950,7 +950,7 @@ footer p {
 /* Glide Arrows - subtle default, pop on hover */
 .glide__arrow {
   background: rgba(200, 200, 200, 0.5); /* light grey, semi-transparent */
-  color: #555; /* dark grey arrow icon */
+  color: #fff; /* dark grey arrow icon */
   border: 1px solid rgba(150, 150, 150, 0.5); /* subtle border */
   transition: 
     background 0.2s ease,
