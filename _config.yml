@@ -25,7 +25,7 @@ profile_image: /assets/profile-picture/Kyle_Avatar.jpg
 
 # Link your resume
 # You can place your resume in assets/resume/{resume.pdf or add external link such as pdf saved in google drive 
-resume-url: <iframe src="https://docs.google.com/document/d/e/2PACX-1vQdtCF8DevRTWxEXoQnW-j6bFigRYQQnNH0SpAzpC11Tg2yq4xaNtEOrDjpkXCXNg/pub?embedded=true"></iframe> # or /assets/resume/resume.pdf
+resume-url: /assets/resume/Kyle Dvoraks Job Resume010626.pdf # or /assets/resume/resume.pdf
 
 
 # Set up external links - this will show up as small icons next to your name.
