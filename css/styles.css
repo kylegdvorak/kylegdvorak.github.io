@@ -1009,3 +1009,33 @@ html {
   transform: translate(-50%, -50%) scale(1.1);
   background: rgba(0, 0, 0, 0.85);
 }
+
+
+
+/* Glide mobile centering + overflow fix */
+.glide {
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.glide,
+.glide * {
+  box-sizing: border-box;
+}
+
+.glide__track {
+  overflow: hidden;
+}
+
+.glide__slides {
+  margin: 0;
+  padding: 0;
+}
+
+.glide__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
