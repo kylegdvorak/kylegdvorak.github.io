@@ -11,6 +11,6 @@ skills:
   - Cable Management
   - Overmolding
 
-main-image: /Overland Main Image.jpg
+main-image: /Dash Mount Background.jpg
 ---
-{% include image-gallery.html images="Overland_Bracket_Versatile.jpg, DriveReachOverland_T-Track_Angles.jpg, DriveReachOverland_T-Track_Folded.jpg, Overland_Bracket_Tabletop.jpg" height="400" %}
+{% include image-gallery.html images="Rugged_Ortho_No_Dash_Background.png, Rugged_Front_No_Dash_Background.png, Rugged_Ortho_With_Dash_Background.png, Rugged_Side_With_Dash_Background.png" height="400" %}
