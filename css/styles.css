@@ -1039,3 +1039,11 @@ html {
   height: 100%;
   object-fit: contain;
 }
+
+/* Mobile rounding compensation */
+@media (max-width: 768px) {
+  .glide {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
