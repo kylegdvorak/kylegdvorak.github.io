@@ -1,15 +1,14 @@
 ---
 layout: post
 title: Hex360
-description: Insert Sky Info Here
+description: Gone are the days of aiming at cell towers, this high-gain omni-directional outdoor antenna is engineered to capture the strongest signal, no matter where its coming from. Whether you're putting this on your home, cabin, or your worksite, the Hex360's modular mounting ability allows you to put it wherever, whenever.
 skills: 
   - Injection Molding
-  - Ultrasonic Welding
+  - IP Rating/Weather-proofing
   - DFM
-  - Particle Vapor Deposition
+  - Sheet Metal Welding
   - Flow Analysis
   - Cable Management
-  - Overmolding
 
 main-image: /Hex360_Background.png
 ---
