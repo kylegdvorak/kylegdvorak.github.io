@@ -1,15 +1,15 @@
 ---
 layout: post
 title: Rugged Dash Mount
-description: Insert Overland Info Here
+description: For life's bumpy roads, we created the Rugged Dash Mount. Encapsulating both our Dash product and any phone type, going hands free has never been more easy.
 skills: 
   - Injection Molding
-  - Ultrasonic Welding
-  - DFM
-  - Particle Vapor Deposition
-  - Flow Analysis
-  - Cable Management
+  - Metal Casting
+  - Vibrational Analysis
   - Overmolding
+  - DFM
+  - Modularity
+  - Material Science
 
 main-image: /Dash Mount Background.png
 ---
