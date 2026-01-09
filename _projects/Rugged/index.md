@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rugged Dash Mount
-description: For life's bumpy roads, we created the Rugged Dash Mount. Encapsulating both our Dash product and any phone type, going hands free has never been more easy.
+description: For life's bumpy roads, we created the Rugged Dash Mount. Encapsulating both our Dash product and any phone type, going hands free has never been easier.
 skills: 
   - Injection Molding
   - Metal Casting
