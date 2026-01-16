@@ -1025,14 +1025,3 @@ html {
     overflow: hidden;
   }
 }
-
-/* Prevent mobile active-state lock */
-.glide__arrow:active {
-  transform: none;
-}
-
-@media (hover: none) {
-  .glide__arrow:hover {
-    background: inherit;
-  }
-}
