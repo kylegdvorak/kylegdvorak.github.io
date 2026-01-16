@@ -1025,3 +1025,21 @@ html {
     overflow: hidden;
   }
 }
+
+/* FIX: Glide arrows not clickable on mobile */
+@media (max-width: 768px) {
+  .glide__arrows {
+    z-index: 20;
+    pointer-events: auto;
+  }
+
+  .glide__arrow {
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
+  /* Prevent slides from hijacking arrow touches */
+  .glide__slide a {
+    pointer-events: auto;
+  }
+}
