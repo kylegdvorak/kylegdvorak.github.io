@@ -1025,32 +1025,3 @@ html {
     overflow: hidden;
   }
 }
-
-/* ---- FIX GLIDE ARROWS ON MOBILE ---- */
-
-/* Ensure arrows are above slide links */
-.glide__arrows {
-  position: relative;
-  z-index: 20;
-}
-
-/* Arrows must receive touch events */
-.glide__arrow {
-  pointer-events: auto;
-  touch-action: manipulation;
-}
-
-/* Slide links should not block arrows */
-.glide__slide a {
-  position: relative;
-  z-index: 1;
-}
-
-/* Prevent stuck hover state on mobile */
-@media (hover: none) {
-  .glide__arrow:hover {
-    background: rgba(200, 200, 200, 0.5);
-    color: #555;
-    border-color: rgba(150, 150, 150, 0.5);
-  }
-}
