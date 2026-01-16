@@ -66,9 +66,10 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
 
-      // Initialize all Glide carousels
+      // Initialize all Glide carousels (with explicit mobile-safe arrows)
       document.querySelectorAll('.glide').forEach(function (gallery) {
-        new Glide(gallery, {
+
+        const glide = new Glide(gallery, {
           type: 'carousel',
           startAt: 0,
           perView: 3,
@@ -77,21 +78,33 @@
             1024: { perView: 2 },
             600: { perView: 1 }
           }
-        }).mount();
+        });
+
+        glide.mount();
+
+        // ✅ Explicit arrow binding (fixes mobile Safari tap issue)
+        const prev = gallery.querySelector('.glide__arrow--left');
+        const next = gallery.querySelector('.glide__arrow--right');
+
+        if (prev && next) {
+          prev.addEventListener('click', () => glide.go('<'));
+          next.addEventListener('click', () => glide.go('>'));
+        }
       });
 
       // Initialize GLightbox
       GLightbox({
         selector: '.glightbox'
       });
-      
+
       // Debug all video lightbox items
       document.querySelectorAll('.glightbox[data-type="video"]').forEach((el, i) => {
-      console.log(`Video #${i + 1}:`);
-      console.log('  href:', el.getAttribute('href'));
-      console.log('  data-poster:', el.getAttribute('data-poster'));
-      console.log('  img src:', el.querySelector('img')?.getAttribute('src'));
+        console.log(`Video #${i + 1}:`);
+        console.log('  href:', el.getAttribute('href'));
+        console.log('  data-poster:', el.getAttribute('data-poster'));
+        console.log('  img src:', el.querySelector('img')?.getAttribute('src'));
       });
+
     });
   </script>
 
