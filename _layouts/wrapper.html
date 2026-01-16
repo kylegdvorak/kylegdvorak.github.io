@@ -63,37 +63,44 @@
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
   <!-- Initialize Glide + Lightbox -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
 
-      // Initialize all Glide carousels
-      document.querySelectorAll('.glide').forEach(function (gallery) {
-        new Glide(gallery, {
-          type: 'carousel',
-          startAt: 0,
-          perView: 3,
-          gap: 20,
-          breakpoints: {
-            1024: { perView: 2 },
-            600: { perView: 1 }
-          }
-        }).mount();
-      });
+    // Initialize all Glide carousels
+    document.querySelectorAll('.glide').forEach(function (gallery) {
+      new Glide(gallery, {
+        type: 'carousel',
+        startAt: 0,
+        perView: 3,
+        gap: 20,
+        breakpoints: {
+          1024: { perView: 2 },
+          600: { perView: 1 }
+        }
+      }).mount();
+    });
 
-      // Initialize GLightbox
-      GLightbox({
-        selector: '.glightbox'
-      });
-      
-      // Debug all video lightbox items
-      document.querySelectorAll('.glightbox[data-type="video"]').forEach((el, i) => {
+    // Initialize GLightbox
+    GLightbox({
+      selector: '.glightbox'
+    });
+
+    // ✅ MOBILE FIX: force Glide arrows to respond to touch
+    document.querySelectorAll('.glide__arrow').forEach(arrow => {
+      arrow.addEventListener('touchend', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        arrow.click();
+      }, { passive: false });
+    });
+
+    // Debug all video lightbox items
+    document.querySelectorAll('.glightbox[data-type="video"]').forEach((el, i) => {
       console.log(`Video #${i + 1}:`);
       console.log('  href:', el.getAttribute('href'));
       console.log('  data-poster:', el.getAttribute('data-poster'));
       console.log('  img src:', el.querySelector('img')?.getAttribute('src'));
-      });
     });
-  </script>
 
-</body>
-</html>
+  });
+</script>
