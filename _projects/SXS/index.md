@@ -9,6 +9,6 @@ skills:
   - Cable Management
   - Material Selection
 
-main-image: /WeBoost Sky Background Image.png
+main-image: /jump_sxs.jpg
 ---
-{% include image-gallery.html images="Sky_Ortho_White.png, Sky_Side_White.png, Sky_WithCable_White.png" height="400" %}
+{% include image-gallery.html images="clamp.jpg, rollcage_sxs.jpg, SXS_Enclosure_Ortho.png, SXS_Enclosure_Front.png" height="400" %}
